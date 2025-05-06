@@ -6,15 +6,23 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
   </head>
   <body>
-    <header>
-      <a href="{% url 'home' %}">Home</a> |
-      <a href="{% url 'about' %}">About</a> |
-      <a href="{% url 'posts' %}">Posts</a> |
-      <a href="{% url 'blog' %}">Blog</a>
-    </header>
-    <div> 
-      {% block content %} 
-      {% endblock content %}
+    <div>
+      <header>
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'about' %}">About</a> |
+        <a href="{% url 'posts' %}">Posts</a> |
+        <a href="{% url 'blog' %}">Blog</a>
+	<div class="nav-left">
+	  <h1><a href="{% url 'home' %}">Django Blog</a></h1>
+	</div>
+	<div class="nav-right">
+	  <h1><a href="{% url 'post_new' %}">+ New Blog Post</a></h1>
+	</div>
+      </header>
+      <div> 
+        {% block content %} 
+        {% endblock content %}
+      </div>
     </div>
   </body>
 </html>
