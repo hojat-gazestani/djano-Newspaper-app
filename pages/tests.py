@@ -3,7 +3,7 @@ from django.urls import reverse
 
 class HomepageTest(SimpleTestCase):
     def test_url_exists_at_correct_location(self):
-        response = self.client.get("/")
+        response = self.client.get("/pages/")
         self.assertEqual(response.status_code, 200)
 
     def test_url_available_by_name(self):
@@ -17,7 +17,7 @@ class HomepageTest(SimpleTestCase):
   
 class AboutpageTests(SimpleTestCase):
     def test_url_exists_at_correct_location(self):
-        response = self.client.get("/about/")
+        response = self.client.get("/pages/about/")
         self.assertEqual(response.status_code, 200)
 
     def test_url_available_by_name(self):
