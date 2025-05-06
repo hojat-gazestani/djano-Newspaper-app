@@ -3,6 +3,6 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from .models import Post
 
-class HomePageView(ListView):
+class PostPageView(ListView):
     model = Post
     template_name = "posts.html"
