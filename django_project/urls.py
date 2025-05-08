@@ -25,5 +25,5 @@ urlpatterns = [
     path('pages/', include('pages.urls')),
     path('posts/', include('posts.urls')),
     path('blog/', include('blog.urls')),
-    path('', TemplateView.as_view(template_name="home.html"), name="home"),
+    path('', include('pages.urls')),
 ]
