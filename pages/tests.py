@@ -12,7 +12,7 @@ class HomepageTest(SimpleTestCase):
 
     def test_template_content(self):
         response = self.client.get(reverse("home"))
-        self.assertContains(response, "<h1>Homepage</h1>")
+        self.assertContains(response, 'You are not logged in')
 
   
 class AboutpageTests(SimpleTestCase):
