@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Articles{% endblock title %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 py-8 space-y-6">
+  {% for article in article_list %}
+    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <h2 class="text-xl font-bold text-gray-800">{{ article.title }}</h2>
+          <div class="text-sm text-gray-500">
+            by {{ article.author }} | {{ article.date }}
+          </div>
+        </div>
+      </div>
+      
+      <div class="px-6 py-4 prose max-w-none">
+        <p class="text-gray-700">{{ article.body|truncatewords:50 }}</p>
+      </div>
+      
+      <div class="px-6 py-4 bg-gray-50 flex justify-center space-x-4">
+        <a href="{% url 'article_edit' article.pk %}" 
+           class="text-blue-600 hover:text-blue-800 hover:underline">
+          Edit
+        </a>
+        <span class="text-gray-400">|</span>
+        <a href="{% url 'article_delete' article.pk %}" 
+           class="text-red-600 hover:text-red-800 hover:underline">
+          Delete
+        </a>
+      </div>
+    </div>
+  {% empty %}
+    <div class="bg-white shadow-md rounded-lg p-6 text-center">
+      <p class="text-gray-600">No articles yet.</p>
+    </div>
+  {% endfor %}
+</div>
+{% endblock content %}

@@ -21,9 +21,10 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include("django.contrib.auth.urls")),
-    path('accounts/', include("accounts.urls")),
-    path('pages/', include('pages.urls')),
-    path('posts/', include('posts.urls')),
-    path('blog/', include('blog.urls')),
-    path('', include('pages.urls')),
+    path('accounts/', include('apps.accounts.urls')),
+    path('pages/', include('apps.pages.urls')),
+    path('posts/', include('apps.posts.urls')),
+    path('blog/', include('apps.blog.urls')),
+    path('articles/', include('apps.articles.urls')),
+    path('', include('apps.pages.urls')),
 ]

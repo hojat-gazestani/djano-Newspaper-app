@@ -40,11 +40,13 @@ INSTALLED_APPS = [
 # 3rd Party
     'crispy_forms',
     'crispy_bootstrap5',
+    'crispy_tailwind',
 # Local
-    'pages.apps.PagesConfig',
-    'posts.apps.PostsConfig',
-    'blog.apps.BlogConfig',
-    'accounts.apps.AccountsConfig',
+    'apps.pages.apps.PagesConfig',
+    'apps.posts.apps.PostsConfig',
+    'apps.blog.apps.BlogConfig',
+    'apps.accounts.apps.AccountsConfig',
+    'apps.articles.apps.ArticlesConfig',
 ]
 
 MIDDLEWARE = [
@@ -113,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
@@ -138,7 +140,7 @@ LOGOUT_REDIRECT_URL = "home"
 
 AUTH_USER_MODEL = "accounts.CustomUser"
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
