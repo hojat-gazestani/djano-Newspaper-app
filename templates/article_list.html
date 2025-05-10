@@ -6,6 +6,7 @@
 <div class="max-w-4xl mx-auto px-4 py-8 space-y-6">
   {% for article in article_list %}
     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <!-- Article Header -->
       <div class="px-6 py-4 border-b border-gray-200">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <h2 class="text-xl font-bold text-gray-800">{{ article.title }}</h2>
@@ -14,21 +15,40 @@
           </div>
         </div>
       </div>
-      
+
+      <!-- Article Body -->
       <div class="px-6 py-4 prose max-w-none">
         <p class="text-gray-700">{{ article.body|truncatewords:50 }}</p>
       </div>
-      
+
+      <!-- Article Actions -->
       <div class="px-6 py-4 bg-gray-50 flex justify-center space-x-4">
-        <a href="{% url 'article_edit' article.pk %}" 
+        <a href="{% url 'article_edit' article.pk %}"
            class="text-blue-600 hover:text-blue-800 hover:underline">
           Edit
         </a>
         <span class="text-gray-400">|</span>
-        <a href="{% url 'article_delete' article.pk %}" 
+        <a href="{% url 'article_delete' article.pk %}"
            class="text-red-600 hover:text-red-800 hover:underline">
           Delete
         </a>
+      </div>
+
+      <!-- Comments Section -->
+      <div class="px-6 py-4 border-t border-gray-200 bg-gray-50">
+        <h3 class="text-lg font-medium text-gray-800 mb-3">Comments</h3>
+        {% for comment in article.comment_set.all %}
+          <div class="mb-3 last:mb-0 pl-3 border-l-2 border-gray-300">
+            <p class="text-sm text-gray-700">
+              <span class="font-semibold text-gray-800">
+                {{ comment.author }} &middot;
+              </span>
+              {{ comment }}
+            </p>
+          </div>
+        {% empty %}
+          <p class="text-sm text-gray-500">No comments yet.</p>
+        {% endfor %}
       </div>
     </div>
   {% empty %}
