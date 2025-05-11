@@ -25,6 +25,5 @@ urlpatterns = [
     path('pages/', include('apps.pages.urls')),
     path('posts/', include('apps.posts.urls')),
     path('blog/', include('apps.blog.urls')),
-    path('articles/', include('apps.articles.urls')),
-    path('', include('apps.pages.urls')),
+    path('', include('apps.articles.urls')),
 ]
